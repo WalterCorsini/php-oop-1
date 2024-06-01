@@ -4,15 +4,18 @@
 // nome clase
 class Movie{
     private string $title;
-    public Genre $genre; 
+    public Genre $genre;
+    public Actor $actor;
     private string $date_release;
     private string $description;
     private int $vote;
+    private string $castString;
 
     // construttore classe con titolo e genere
-    public function __construct(string $title, Genre $genre) {
+    public function __construct(string $title, Genre $genre, Actor $actor) {
         $this->title    = $title;
         $this->genre    = $genre;
+        $this->actor  = $actor;
 
     }
 
@@ -28,7 +31,6 @@ class Movie{
         $this->description = $description;
     }
 
-
     // stampa senza controllo
     function getTitle() {
         return "nome film: " . $this->title;
@@ -40,11 +42,16 @@ class Movie{
 
     function getVote() {
         return "voto: " . $this->vote;
-        // $this->description .  
     }
     function getDescription() {
         return "Trama: " . $this->description;
     }
+function getCast() {
+    foreach ($this->cast as $index => $actor) {
+        $this->castString.= "Attore {$index}: {$actor}\n";
+    }
+    return $this->castString;
+}
 }
 
 
