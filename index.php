@@ -17,6 +17,7 @@ $movie1 = new Movie('ciao mamma', $genre1, $actor1);
 $movie1->setData("21-11-1990");
 $movie1->setVote(2);
 $movie1->setDescription("descrizione film1");
+$movie1->setImage("./img/ciao-mamma.jpg");
 // /film 1
 // film 2
 $genre2 = new Genre('commedia', 'no');
@@ -24,6 +25,7 @@ $movie2 = new Movie('ciao papa', $genre2, $actor2);
 $movie2->setData("01-06-2024");
 $movie2->setVote(1);
 $movie2->setDescription("descrizione film2");
+$movie2->setImage("./img/ciao-papa.jpg");
 // /film 2
 
 $movie = [];
@@ -39,30 +41,33 @@ $movie[] = $movie2;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- style css -->
-    <link rel="stylesheet" href="./css/styl.css">
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- style css -->
+    <link rel="stylesheet" href="./css/styl.css">
 </head>
 
-<body>
+<body class="w-100 d-flex gap-4 justify-content-center mt-4">
     <?php foreach ($movie as $movie) { ?>
-    <ul>
-            <li><?php echo $movie->getTitle(); ?>
-            <li><?php echo $movie->getData(); ?></li>
-            <li><?php echo $movie->getVote(); ?></li>
-            <li><?php echo $movie->getDescription(); ?></li>
-            <li><?php echo $movie->genre->getGenre(); ?></li>
-            <li><?php echo $movie->genre->getAdultOnly(); ?></li>
-            <li>Cast:
+        <div class="card" style="width: 18rem;">
+            <div class="front-card">
+            <img src="<?php echo $movie->getImage() ?>" class="card-img-top" alt="...">
+            </div>
+            <div class="card-body">
+                <p><?php echo $movie->getTitle(); ?></p>
+                <p><?php echo $movie->getData(); ?></p>
+                <p><?php echo $movie->getVote(); ?></p>
+                <p><?php echo $movie->genre->getGenre(); ?></p>
+                <p><?php echo $movie->genre->getAdultOnly(); ?></p>
+                <p class="card-text"><?php echo $movie->getDescription(); ?></p>
+                <span>Cast:</span>
                 <ul>
                     <?php echo $movie->actor->getActor() . "" ?>
                 </ul>
-            </li>
-    </ul>
-<?php } ?>
-</ul>
-<!-- echo $movie1->genre->getAdultOnly() -->
+            </div>
+        </div>
+    <?php } ?>
+    <!-- echo $movie1->genre->getAdultOnly() -->
 </body>
 
 </html>

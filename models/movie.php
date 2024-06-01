@@ -6,6 +6,7 @@ class Movie{
     private string $title;
     public Genre $genre;
     public Actor $actor;
+    private string $poster;
     private string $date_release;
     private string $description;
     private int $vote;
@@ -30,6 +31,9 @@ class Movie{
     function setDescription($description){
         $this->description = $description;
     }
+    function setImage($poster){
+        $this->poster= $poster;
+    }
 
     // stampa senza controllo
     function getTitle() {
@@ -46,12 +50,9 @@ class Movie{
     function getDescription() {
         return "Trama: " . $this->description;
     }
-function getCast() {
-    foreach ($this->cast as $index => $actor) {
-        $this->castString.= "Attore {$index}: {$actor}\n";
+    function getImage(){
+        return $this->poster;
     }
-    return $this->castString;
-}
 }
 
 
