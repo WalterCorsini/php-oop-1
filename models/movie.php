@@ -37,18 +37,18 @@ class Movie{
 
     // stampa senza controllo
     function getTitle() {
-        return "nome film: " . $this->title;
+        return "<strong>nome film: </strong>" . $this->title;
     }
 
     function getData() {
-        return "data di uscita: " . $this->date_release;
+        return "<strong>data di uscita: </strong>" . $this->date_release;
     }
 
     function getVote() {
-        return "voto: " . $this->vote;
+        return "<strong>voto: </strong>" . $this->vote;
     }
     function getDescription() {
-        return "Trama: " . $this->description;
+        return "<strong>Trama: </strong>" . $this->description;
     }
     function getImage(){
         return $this->poster;

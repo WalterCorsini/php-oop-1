@@ -13,11 +13,11 @@
         
         // stampa senza controllo
         function getGenre(){
-            return " genere: " . $this->name; 
+            return "<strong>genere: </strong>" . $this->name; 
         }
 
         function getAdultOnly(){
-            return "riservato agli adulti: " . $this->adult_only; 
+            return "<strong>riservato agli adulti: </strong>" . $this->adult_only; 
         }
     }
 ?>

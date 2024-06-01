@@ -60,7 +60,7 @@ $movie[] = $movie2;
                 <p><?php echo $movie->genre->getGenre(); ?></p>
                 <p><?php echo $movie->genre->getAdultOnly(); ?></p>
                 <p class="card-text"><?php echo $movie->getDescription(); ?></p>
-                <span>Cast:</span>
+                <span><strong>Cast: </strong></span>
                 <ul>
                     <?php echo $movie->actor->getActor() . "" ?>
                 </ul>
