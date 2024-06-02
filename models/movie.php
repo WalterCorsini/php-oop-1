@@ -22,7 +22,14 @@ class Movie{
 
     // inserimento senza controllo
     function setData($date){
-        $this->date_release = $date;
+        $current_date = new DateTime();
+        $current_date = $current_date->format('Y-m-d');
+        $formatted_date = date('Y-m-d', strtotime($date));
+        if($current_date > $formatted_date){
+            $this->date_release = $formatted_date;
+        } else {
+            throw new Exception("non puoi inserire date future");
+        }
     }
 
     function setVote($vote){

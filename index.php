@@ -8,13 +8,13 @@ require_once "models/genre.php";
 // inserimento attori
 
 $actor1 = new Actor("Luca", "Giardina");
-$actor1->setActor("Sofia ", "Perlari");
+$actor1->setActor("Sofia", "Perlari");
 $actor2 = new Actor("Loris", "Barbiero");
-$actor2->setActor("Olga ", "Demina");
+$actor2->setActor("Olga", "Demina");
 // film 1
 $genre1 = new Genre('horror', 'si');
 $movie1 = new Movie('ciao mamma', $genre1, $actor1);
-$movie1->setData("21-11-1990");
+$movie1->setData("01-06-2024");
 $movie1->setVote(2);
 $movie1->setDescription("descrizione film1");
 $movie1->setImage("./img/ciao-mamma.jpg");
