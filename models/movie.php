@@ -2,7 +2,8 @@
 
 
 // nome clase
-class Movie{
+class Movie
+{
     private string $title;
     public Genre $genre;
     public Actor $actor;
@@ -10,66 +11,98 @@ class Movie{
     private string $date_release;
     private string $description;
     private string $vote;
-    private string $castString;
 
     // construttore classe con titolo e genere
-    public function __construct(string $title, Genre $genre, Actor $actor) {
-        $title1 = str_replace(" ","",$title);
-        if(!empty($title1)){
+    public function __construct(string $title, Genre $genre, Actor $actor)
+    {
+        //  elimino spazi nel per controllare se sia lasciato vuoto o meno il campo
+        $title1 = str_replace(" ", "", $title);
+        if (!empty($title1)) {
             $this->title    = $title;
         } else {
             throw new Exception("non lasciare i campi vuoti");
         }
         $this->genre        = $genre;
         $this->actor        = $actor;
-
     }
 
-    // inserimento senza controllo
-    function setData($date){
+    // inserimento data
+    function setData($date)
+    {
+        // creo data corrente e la setto nel formato anno mese giorno
         $current_date = new DateTime();
         $current_date = $current_date->format('Y-m-d');
+        // formatto la data inserita dall'utente
         $formatted_date = date('Y-m-d', strtotime($date));
-        if($current_date > $formatted_date){
+        //  controllo che non sia una data futura
+        if ($current_date >= $formatted_date) {
             $this->date_release = $formatted_date;
         } else {
             throw new Exception("non puoi inserire date future");
         }
     }
 
-    function setVote($vote){
-        if(is_numeric($vote) && $vote<6 && $vote>=0){
+    // inserimento voto
+    function setVote($vote)
+    {
+        //  controllo che il valore inserito sia numerico e compreso tra 0 e 5
+        if (is_numeric($vote) && $vote < 6 && $vote >= 0) {
             $this->vote = $vote . "/5";
         } else {
             throw new Exception("numeri consenti da 0 - 5");
         }
     }
-    function setDescription($description){
-        $this->description = $description;
-    }
-    function setImage($poster){
-        $this->poster= $poster;
+
+    // inserisco descrizione
+    function setDescription($description)
+    {
+        // elimino gli spazi per controllare che non sia vuoto e maggiore di almeno 20 caratteri
+        $description1 = str_replace(" ", "", $description);
+        if (strlen($description1) > 20) {
+            $this->description = $description;
+        } else {
+            throw new Exception("supera i 20 caratteri");
+        }
     }
 
-    // stampa senza controllo
-    function getTitle() {
+    // inserimento url image
+    function setImage($poster)
+    {
+        // controllo l'esistenza del file se esiste
+        if (file_exists($poster)) {
+            $this->poster = $poster;
+        } else {
+            throw new Exception("inserisci il percorso corretto dell'immagine");
+        }
+    }
+
+    // stampa titolo
+    function getTitle()
+    {
         return "<strong>nome film: </strong>" . $this->title;
     }
 
-    function getData() {
+    // stampa data
+    function getData()
+    {
         return "<strong>data di uscita: </strong>" . $this->date_release;
     }
 
-    function getVote() {
+    // stampa voto
+    function getVote()
+    {
         return "<strong>voto: </strong>" . $this->vote;
     }
-    function getDescription() {
+
+    // stampa descrizione
+    function getDescription()
+    {
         return "<strong>Trama: </strong>" . $this->description;
     }
-    function getImage(){
+
+    // stampa immagine
+    function getImage()
+    {
         return $this->poster;
     }
 }
-
-
-?>

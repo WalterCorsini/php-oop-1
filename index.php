@@ -12,11 +12,11 @@ $actor1->setActor("Sofia", "Perlari");
 $actor2 = new Actor("Loris", "Barbiero");
 $actor2->setActor("Olga", "Demina");
 // film 1
-$genre1 = new Genre('horror', 'si');
-$movie1 = new Movie('ciao mamma', $genre1, $actor1);
-$movie1->setData("01-06-2024");
+$genre1 = new Genre('horror', 'SI');
+$movie1 = new Movie('ciamamma', $genre1, $actor1);
+$movie1->setData("02-06-2024");
 $movie1->setVote(2);
-$movie1->setDescription("descrizione film1");
+$movie1->setDescription("descrizione film1 davvero molto bello");
 $movie1->setImage("./img/ciao-mamma.jpg");
 // /film 1
 // film 2
@@ -24,7 +24,7 @@ $genre2 = new Genre('commedia', 'no');
 $movie2 = new Movie('ciao papa', $genre2, $actor2);
 $movie2->setData("01-06-2024");
 $movie2->setVote(1);
-$movie2->setDescription("descrizione film2");
+$movie2->setDescription("descrizione film2 un po meno bello");
 $movie2->setImage("./img/ciao-papa.jpg");
 // /film 2
 
