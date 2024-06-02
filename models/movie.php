@@ -9,14 +9,19 @@ class Movie{
     private string $poster;
     private string $date_release;
     private string $description;
-    private int $vote;
+    private string $vote;
     private string $castString;
 
     // construttore classe con titolo e genere
     public function __construct(string $title, Genre $genre, Actor $actor) {
-        $this->title    = $title;
-        $this->genre    = $genre;
-        $this->actor  = $actor;
+        $title1 = str_replace(" ","",$title);
+        if(!empty($title1)){
+            $this->title    = $title;
+        } else {
+            throw new Exception("non lasciare i campi vuoti");
+        }
+        $this->genre        = $genre;
+        $this->actor        = $actor;
 
     }
 
@@ -33,7 +38,11 @@ class Movie{
     }
 
     function setVote($vote){
-        $this->vote = $vote;
+        if(is_numeric($vote) && $vote<6 && $vote>=0){
+            $this->vote = $vote . "/5";
+        } else {
+            throw new Exception("numeri consenti da 0 - 5");
+        }
     }
     function setDescription($description){
         $this->description = $description;
