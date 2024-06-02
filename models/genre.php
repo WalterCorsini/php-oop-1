@@ -30,7 +30,7 @@
 
         // stampa riservato agli adulti
         function getAdultOnly(){
-            return "<strong>riservato agli adulti: </strong>" . $this->adult_only; 
+            return "<strong> riservato agli adulti: </strong>" . $this->adult_only; 
         }
     }
 ?>
