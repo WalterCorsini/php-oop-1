@@ -36,9 +36,9 @@ class Movie
         $formatted_date = date('Y-m-d', strtotime($date));
         //  controllo che non sia una data futura
         if ($current_date >= $formatted_date) {
-            $this->date_release = $formatted_date;
+            $this->date_release = date('j F Y',strtotime($formatted_date));
         } else {
-            throw new Exception("non puoi inserire date future");
+            throw new Exception("non puoi inserire date future . formato gg-mm-yyyy");
         }
     }
 
@@ -79,19 +79,19 @@ class Movie
     // stampa titolo
     function getTitle()
     {
-        return "<strong>nome film: </strong>" . $this->title;
+        return "<strong>Nome film: </strong>" . $this->title;
     }
 
     // stampa data
     function getData()
     {
-        return "<strong>data di uscita: </strong>" . $this->date_release;
+        return "<strong>Data di uscita: </strong>" . $this->date_release;
     }
 
     // stampa voto
     function getVote()
     {
-        return "<strong>voto: </strong>" . $this->vote;
+        return "<strong>Voto: </strong>" . $this->vote;
     }
 
     // stampa descrizione
