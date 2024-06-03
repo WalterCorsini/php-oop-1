@@ -1,6 +1,6 @@
 <?php
-
-class Actor
+// questo doveva essere una lista di attori che è in un istanza cast, perchè una attore puo partecipare a piu film ed evitiamo la ripetizione del dato.
+class Cast
 {
     private array $actor;
 
@@ -28,7 +28,7 @@ class Actor
         }
     }
 
-    // funzione che restituisce in pagina l'array actor in modo diviso,avengo normalizzato ogni valore dell'array con i ta <li></li> ottengo in pagina una lista ordinata senza utilizzare dentro il metodo implode un carattere divisore(, . - ....)
+    // funzione che restituisce in pagina l'array actor in modo diviso, viene normalizzato ogni valore dell'array con i valori tra gli  <li> </li>,ottengo in pagina una lista ordinata senza utilizzare dentro il metodo implode un carattere divisore(, . - ....)
     function getActor()
     {
         return implode($this->actor);

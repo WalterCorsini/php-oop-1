@@ -6,14 +6,14 @@ class Movie
 {
     private string $title;
     public Genre $genre;
-    public Actor $actor;
+    public Cast $cast;
     private string $poster;
     private string $date_release;
     private string $description;
     private string $vote;
 
     // construttore classe con titolo e genere
-    public function __construct(string $title, Genre $genre, Actor $actor)
+    public function __construct(string $title, Genre $genre, Cast $cast)
     {
         //  elimino spazi nel per controllare se sia lasciato vuoto o meno il campo
         $title1 = str_replace(" ", "", $title);
@@ -23,7 +23,7 @@ class Movie
             throw new Exception("non lasciare i campi vuoti");
         }
         $this->genre        = $genre;
-        $this->actor        = $actor;
+        $this->cast        = $cast;
     }
 
     // inserimento data

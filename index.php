@@ -7,9 +7,9 @@ require_once "models/genre.php";
 
 // inserimento attori
 
-$actor1 = new Actor("Luca", "Giardina");
+$actor1 = new Cast("Luca", "Giardina");
 $actor1->setActor("Sofia", "Perlari");
-$actor2 = new Actor("Loris", "Barbiero");
+$actor2 = new Cast("Loris", "Barbiero");
 $actor2->setActor("Olga", "Demina");
 // film 1
 $genre1 = new Genre('horror', 'Si');
